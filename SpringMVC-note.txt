@@ -18,3 +18,18 @@ SpringMVC框架：SpringMVC是Spring的web模块
 		1）客户端点击链接发送url到Tomcat服务器；
 		2）SpringMVC的前段控制器收到所有请求，并查看@RequestMapping标注的所有方法的地址与请求地址是否有匹配到，如果匹配到则直接执行目标方法；
 		3）目标方法执行完返回一个字符串，SpringMVC的视图解析器会根据前后缀及返回值拼接成一个页面地址，并转发到该页面。
+	4、@RequestMapping注解：用来告诉SpringMVC这个方法是用来处理什么请求的；里面的配置参数可以省略/，即使不写，也是默认项目路径下。
+		4.1）标注位置：类上或方法上
+			a）标注在类上：提供初步的请求映射信息。相对于web应用的根目录
+			b）标注在方法上：提供进一步的细分映射信息。相对于类定义出的url，若类未定义@RequestMapping，则相对于web应用的根目录
+		4.2）内部可配置参数
+			a）value：配置映射地址
+			b）method：限定请求方式（GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS, TRACE），如果不配置则不限定请求方式
+			c）params：指定request中参数值的配置格式
+				i）{"param"}:指定请求参数必须有param
+				ii）{"param=xxxx"}:指定请求参数必须有param，且值必须为xxxx
+				iii）{"param!=xxxx"}：指定请求参数param值不能为xxxx，或者没有请求参数param
+				iiii）{"!param"}：指定请求参数不能含有param
+				iiiii）{"param1=xxxx1","param2","param3!=xxxx3"}：多条件匹配写法
+		
+	5、

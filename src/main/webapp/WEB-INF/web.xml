@@ -26,7 +26,18 @@
     <servlet-mapping>
         <servlet-name>springMVC</servlet-name>
         <!--/*和/都是拦截所有请求
-            但是/*更加强大，还会拦截*.jsp页面-->
+            但是/*更加强大，还会拦截*.jsp页面
+            原因：
+                1）所有项目的web.xml都继承tomcat中的web.xml
+                2）tomcat中的web.xml配置了两个servlet
+                    a）default（org.apache.catalina.servlets.DefaultServlet）：url-pattern=/（tomcat用来处理静态资源的，如html，css等）
+                    b）jsp（org.apache.jasper.servlet.JspServlet）：url-pattern=*.jsp、*.jspx（tomcat用来处理jsp）
+                3）如果我们配置/，相当于覆盖了tomcat中的web
+                .xml中DefaultServlet，静态资源直接交由我们配置的前端控制器来处理，前端控制器会扫描项目有没有满足该请求url的处理方法，如果没有则直接404；相反JspServlet
+                不受影响，所以jsp页面正常访问
+                4）如果我们配置了/*，相当于覆盖所有的请求，全部由我们自己配置的前端控制器来处理请求，所以连jsp也拦截了。
+                5）配置/也是为了配合后面的restful风格
+            -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
     <!--把applicationContext.xml加入到配置文件中-->
