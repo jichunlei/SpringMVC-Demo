@@ -1,0 +1,20 @@
+SpringMVC框架：SpringMVC是Spring的web模块
+	1、MVC架构（Model–View–Controller）
+		M（Model）:模型代表一个存取数据的对象或 JAVA POJO。它也可以带有逻辑，在数据变化时更新控制器
+		V（View）:视图代表模型包含的数据的可视化
+		C（Controller）:控制器作用于模型和视图上。它控制数据流向模型对象，并在数据变化时更新视图。它使视图与模型分离开。
+	2、SpringMVC-开发包组成
+		2.1）核心容器包
+			org.springframework.context-x.x.x.RELEASE.jar
+			org.springframework.expression-x.x.x.RELEASE.jar
+			org.springframework.core-x.x.x.RELEASE.jar
+			org.springframework.beans-x.x.x.RELEASE.jar
+			org.springframework.asm-x.x.x.RELEASE.jar
+			commons-logging.jar
+		2.2）web模块
+			org.springframework.web-x.x.x.RELEASE.jar
+			org.springframework.webmvc-x.x.x.RELEASE.jar
+	3、Hello例子的启动流程
+		1）客户端点击链接发送url到Tomcat服务器；
+		2）SpringMVC的前段控制器收到所有请求，并查看@RequestMapping标注的所有方法的地址与请求地址是否有匹配到，如果匹配到则直接执行目标方法；
+		3）目标方法执行完返回一个字符串，SpringMVC的视图解析器会根据前后缀及返回值拼接成一个页面地址，并转发到该页面。
