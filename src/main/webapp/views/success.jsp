@@ -5,7 +5,9 @@
   Time: 9:00
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"
+         isErrorPage="true"%>
+<%--高版本的Tomcat(8.0+)不支持DELETE、PUT请求--%>
 <html>
 <head>
     <title>success</title>
