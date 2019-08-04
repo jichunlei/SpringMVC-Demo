@@ -19,6 +19,9 @@
     <button type="submit">删除图书</button>
 </form>
 
-<a href="/mvc/book/param?bid=123&username1=root">获取请求参数</a>
+<a href="/mvc/book/param?bid=123&username1=root">获取请求参数</a><br/>
+
+<a href="/mvc/hello3">返回参数到界面</a><br/>
+<a href="/mvc/hello4">返回mv到界面</a><br/>
 </body>
 </html>

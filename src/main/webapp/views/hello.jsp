@@ -11,6 +11,8 @@
     <title>hello</title>
 </head>
 <body>
-    <a href="hello">hello</a>
+    msg:${requestScope.get("msg")}<br/>
+    msg2:${requestScope.get("msg2")}<br/>
+    msg3:${requestScope.get("msg3")}<br/>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package cn.jicl.pojo;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -8,6 +9,7 @@ import lombok.Data;
  * @Description: TODO
  */
 @Data
+@AllArgsConstructor
 public class Person {
     private String name;
 }

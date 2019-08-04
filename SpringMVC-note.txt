@@ -64,3 +64,6 @@ SpringMVC框架：SpringMVC是Spring的web模块
 					（SpringMVC提供了CharacterEncodingFilter过滤器，且务必配置在其他所有filter之前）
 			6.5.2）响应乱码：
 				response.setContentType("text/html;charset=utf-8");
+	7、SpringMVC响应参数返回到界面
+		7.1）可以在方法处传入Map、Model或者ModelMap，给这些对象中保存的参数都保存在请求域中，可以被界面获取。
+		7.2）方法的返回值可以是ModelAndView类型，既包含视图信息（页面地址），也包含模型数据（传递给页面的参数，包含在请求域中）
