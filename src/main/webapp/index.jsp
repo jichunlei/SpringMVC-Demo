@@ -5,6 +5,9 @@
 <h2>Hello World!</h2>
 <a href="/mvc/book/1">查询图书</a>
 <form action="/mvc/book" method="post">
+    书名：<input type="text" name="BookName"/><br/>
+    作者：<input type="text" name="author.name"/><br/>
+    价格：<input type="text" name="price"/><br/>
     <button type="submit">新增图书</button>
 </form>
 <form action="/mvc/book/2" method="post">
@@ -16,6 +19,6 @@
     <button type="submit">删除图书</button>
 </form>
 
-<a href="/mvc/book/param?bid=123&username1=root">获取请求体参数</a>
+<a href="/mvc/book/param?bid=123&username1=root">获取请求参数</a>
 </body>
 </html>

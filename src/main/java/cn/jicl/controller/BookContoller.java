@@ -1,10 +1,8 @@
 package cn.jicl.controller;
 
+import cn.jicl.pojo.Book;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Auther: xianzilei
@@ -22,8 +20,8 @@ public class BookContoller {
      * @date: 2019/8/3 8:03
      **/
     @RequestMapping(method = RequestMethod.POST)
-    public String addBook() {
-        System.out.println("新增图书成功！");
+    public String addBook(Book book) {
+        System.out.println("新增图书成功！"+book);
         return "success";
     }
 
@@ -67,9 +65,15 @@ public class BookContoller {
     }
 
     @RequestMapping("/param")
-    public String getRequestParams(Integer bid, @RequestParam(value = "username",required = false,defaultValue = "未知用户") String user) {
-        System.out.println("获取参数bid：" + bid);
-        System.out.println("获取参数user：" + user);
+    public String getRequestParams
+            (Integer bid,
+             @RequestParam(value = "username", required = false, defaultValue = "未知用户") String user,
+             @RequestHeader("User-Agent") String UserAgent,
+             @CookieValue("JSESSIONID") String JID) {
+        System.out.println("获取请求体参数bid：" + bid);
+        System.out.println("获取请求体参数user：" + user);
+        System.out.println("获取请求头参数User-Agent：" + UserAgent);
+        System.out.println("获取cookie参数JSESSIONID：" + JID);
         return "success";
     }
 }

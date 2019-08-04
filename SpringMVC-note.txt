@@ -47,10 +47,20 @@ SpringMVC框架：SpringMVC是Spring的web模块
 			b）表现层(Representation)：把资源具体呈现出来的形式。比如文件可以使用txt表现，也可以用HTML格式、XML格式、JSON格式，甚至可以采用二进制格式。
 			c）状态转化(State Transfer)：每发出一个请求，就代表了客户端和服务器的一次交互过程。HTTP协议是一个无状态协议，即所有的状态都保存在服务器端。因此，如果客户端想要操作服务器，必须通过某种手段，让服务器端发送"状态转化"。而这种转化是建立在表现层之上的，所以就是表现层状态转化。具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种基本操作：GET用来获取资源，POST用来新建资源，PUT用来更新资源，DELETE用来删除资源。
 	6、SpringMVC获取请求参数
-		6.1）不使用注解获取：可以直接在方法入参定义，但是需保证参数名与请求参数的参数名一致，否则默认为null
+		6.1）不使用注解获取：可以直接在方法入参定义，但是需保证参数名与请求参数的参数名一致，否则默认为null，可以定义基础类型，也可以定义对象类型，同时支持级联赋值
 		6.2）@RequestParam注解
 			6.2.1）属性：
 				a）value：指定要获取的参数名
 				b）required：指定这个参数是否是必须的，默认为true，如果没有这个参数直接抛异常。设置为false则获取不到的话不抛异常。
-				c）defaultValue：设置参数的默认值，如果没有获取到参数，则取该默认值，如果不设置默认值为null
-			
+				c）defaultValue：设置参数的默认值，如果没有获取到参数，则取该默认值，如果不设置默认值为null（前提required=false）
+		6.3）@RequestHeader注解
+			获取请求头中参数用法同上
+		6.4）@CookieValue注解
+			获取Cookie中参数用法同上
+		6.5）参数乱码问题的解决
+			6.5.1）请求乱码：
+				a）GET请求：改server.xml配置，在8080端口处选择参数URIEncoding=UTF-8
+				b）POST请求：在第一次获取参数之前设置requset.setCharacterEncoding("UTF-8");
+					（SpringMVC提供了CharacterEncodingFilter过滤器，且务必配置在其他所有filter之前）
+			6.5.2）响应乱码：
+				response.setContentType("text/html;charset=utf-8");
