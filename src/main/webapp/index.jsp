@@ -23,5 +23,12 @@
 
 <a href="/mvc/hello3">返回参数到界面</a><br/>
 <a href="/mvc/hello4">返回mv到界面</a><br/>
+<a href="/mvc/hello4">从session中获取参数</a><br/>
+
+<form action="/mvc/book/update" method="post">
+    <input type="hidden" name="_method" value="put"/>
+    价格：<input type="text" name="price"/>
+    <button type="submit">更新图书</button>
+</form>
 </body>
 </html>

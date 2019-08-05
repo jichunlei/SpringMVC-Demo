@@ -1,6 +1,5 @@
 package cn.jicl.controller;
 
-import cn.jicl.pojo.Book;
 import cn.jicl.pojo.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
@@ -20,6 +20,8 @@ import java.util.Map;
  */
 //告诉SpringMVC这个类是一个处理器类
 @Controller
+//@SessionAttributes(value = {"msg","msg2"},types = {String.class})
+@SessionAttributes(value = {"msg","msg2"},types = {String.class})
 public class HelloController {
 
     //其中的/可以省略不写
@@ -57,6 +59,7 @@ public class HelloController {
         modelAndView.addObject("msg",new Person("咸子磊"));
         modelAndView.addObject("msg2",new Date());
         modelAndView.addObject("msg3","hello");
+        modelAndView.addObject("msg4",11);
         return modelAndView;
     }
 }

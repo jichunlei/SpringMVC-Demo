@@ -67,3 +67,11 @@ SpringMVC框架：SpringMVC是Spring的web模块
 	7、SpringMVC响应参数返回到界面
 		7.1）可以在方法处传入Map、Model或者ModelMap，给这些对象中保存的参数都保存在请求域中，可以被界面获取。
 		7.2）方法的返回值可以是ModelAndView类型，既包含视图信息（页面地址），也包含模型数据（传递给页面的参数，包含在请求域中）
+		7.3）@SessionAttributes注解
+			a）value：需要放入的属性key
+			b）type：需要放入的属性类类型
+			c）如果两个属性都赋值，则取二者的并集
+		7.4）@ModelAttribute注解：可以自己定义对象接收页面参数,而不是SpringMVC新new对象。（可以实现字段的局部更新，但是整合mybaits框架之后，该注解基本无作用，了解即可）
+	8、SpringMVC的请求流程
+		8.1）前端控制器（DispatcherServlet）
+	

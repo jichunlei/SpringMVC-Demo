@@ -11,8 +11,14 @@
     <title>hello</title>
 </head>
 <body>
-    msg:${requestScope.get("msg")}<br/>
-    msg2:${requestScope.get("msg2")}<br/>
-    msg3:${requestScope.get("msg3")}<br/>
+    requestScope.msg:${requestScope.get("msg")}<br/>
+    requestScope.msg2:${requestScope.get("msg2")}<br/>
+    requestScope.msg3:${requestScope.get("msg3")}<br/>
+    requestScope.msg3:${requestScope.get("msg4")}<br/>
+    <hr/>
+    sessionScope.msg:${sessionScope.get("msg")}<br/>
+    sessionScope.msg2:${sessionScope.get("msg2")}<br/>
+    sessionScope.msg3:${sessionScope.get("msg3")}<br/>
+    sessionScope.msg3:${sessionScope.get("msg4")}<br/>
 </body>
 </html>
