@@ -89,3 +89,35 @@ protected void doDispatch(HttpServletRequest request, HttpServletResponse respon
 			}
 		}
 	}
+	=======================================================================================================
+	//getHandler方法详解
+	protected HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
+		//handlerMappings可以理解为资源部，里面保存有映射的url
+		for (HandlerMapping hm : this.handlerMappings) {
+			if (logger.isTraceEnabled()) {
+				logger.trace(
+						"Testing handler map [" + hm + "] in DispatcherServlet with name '" + getServletName() + "'");
+			}
+			//查找是否有该url的处理器
+			HandlerExecutionChain handler = hm.getHandler(request);
+			if (handler != null) {
+				return handler;
+			}
+		}
+		return null;
+	}
+	===========================================================================================================
+	//getHandlerAdapter方法详解
+	protected HandlerAdapter getHandlerAdapter(Object handler) throws ServletException {
+		//原理同上，循环查找handlerAdapters
+		for (HandlerAdapter ha : this.handlerAdapters) {
+			if (logger.isTraceEnabled()) {
+				logger.trace("Testing handler adapter [" + ha + "]");
+			}
+			if (ha.supports(handler)) {
+				return ha;
+			}
+		}
+		throw new ServletException("No adapter for handler [" + handler +
+				"]: The DispatcherServlet configuration needs to include a HandlerAdapter that supports this handler");
+	}

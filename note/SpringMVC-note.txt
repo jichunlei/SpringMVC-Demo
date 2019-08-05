@@ -1,4 +1,4 @@
-SpringMVC框架：SpringMVC是Spring的web模块
+ SpringMVC框架：SpringMVC是Spring的web模块
 	1、MVC架构（Model–View–Controller）
 		M（Model）:模型代表一个存取数据的对象或 JAVA POJO。它也可以带有逻辑，在数据变化时更新控制器
 		V（View）:视图代表模型包含的数据的可视化
@@ -73,5 +73,17 @@ SpringMVC框架：SpringMVC是Spring的web模块
 			c）如果两个属性都赋值，则取二者的并集
 		7.4）@ModelAttribute注解：可以自己定义对象接收页面参数,而不是SpringMVC新new对象。（可以实现字段的局部更新，但是整合mybaits框架之后，该注解基本无作用，了解即可）
 	8、SpringMVC的请求流程
-		8.1）前端控制器（DispatcherServlet）
+		8.1）前端控制器（DispatcherServlet）处理步骤
+			8.1.1）所有请求过来被DispatcherServlet拦截；
+			8.2.2）调用doDispatch()方法进行处理；
+				a）getHandler()：根据当前请求地址找到能够处理这个请求的目标处理器类（执行链）
+				b）getHandlerAdapter()：根据当前处理器类获取到能够执行这个处理器方法的适配器
+				c）使用刚才获取到的适配器执行目标方法
+				d）目标方法执行后返回一个ModelAndView对象
+				e）根据ModelAndView对象的信息转发到具体的页面，并可以在请求域中取出ModelAndView对象中的模型数据
+			8.2.3）getHandler()细节
+				a）handlerMappings保存了所有的handlerMapping（资源部）
+				b）循环查找以上所有的handlerMapping是否包含request中的url处理器，如果有则返回组装后的HandlerExecutionChain（Handler执行链）
+			8.2.4）getHandlerAdapter()细节
+				a）
 	
