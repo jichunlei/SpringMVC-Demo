@@ -85,6 +85,7 @@ public class BookController {
      * @auther: xianzilei
      * @date: 2019/8/5 8:46
      **/
+    //ModelAttribute标注的方法会提前运行，且会把方法的返回值放到隐含模型中（key为方法返回类型首字母小写）
     @ModelAttribute
     public void bookModel(Model model){
         Book book = new Book();
