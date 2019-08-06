@@ -30,5 +30,10 @@
     价格：<input type="text" name="price"/>
     <button type="submit">更新图书</button>
 </form>
+<hr/>
+<a href="/mvc/hello5">hello5转发</a><br/>
+<a href="/mvc/hello6">hello6转发</a><br/>
+<a href="/mvc/hello7">hello7重定向</a><br/>
+<a href="/mvc/hello8">hello8重定向</a><br/>
 </body>
 </html>

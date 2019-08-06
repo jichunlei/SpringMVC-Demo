@@ -62,4 +62,56 @@ public class HelloController {
         modelAndView.addObject("msg4",11);
         return modelAndView;
     }
+
+    /**
+     * @Description: forward:表示转发，转发到当前项目下的xx资源
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/6 22:24
+     **/
+    @RequestMapping(value = "/hello5")
+    public String hello05(){
+        System.out.println("hello05");
+        //转发到页面
+        return "forward:/hello.jsp";
+    }
+
+    /**
+     * @Description: forward:转发到mapping
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/6 22:24
+     **/
+    @RequestMapping(value = "/hello6")
+    public String hello06(){
+        System.out.println("hello06");
+        //转发到其他的mapping
+        return "forward:/hello5";
+    }
+
+    /**
+     * @Description: redirect:表示重定向，转发到当前项目下的xx资源
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/6 22:24
+     **/
+    @RequestMapping(value = "/hello7")
+    public String hello07(){
+        System.out.println("hello07");
+        //转发到页面
+        return "redirect:/hello.jsp";
+    }
+
+    /**
+     * @Description: forward:重定向到mapping
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/6 22:24
+     **/
+    @RequestMapping(value = "/hello8")
+    public String hello08(){
+        System.out.println("hello08");
+        //转发到其他的mapping
+        return "redirect:/hello7";
+    }
 }

@@ -100,6 +100,31 @@
 		8.3）SpringMVC的九大组件初始化
 			8.3.1）DispatcherServlet中的onRefresh方法中的initStrategies方法，里面初始化了九大组件（方法调用是在服务器启动的完成）
 			8.3.2）组件初始化均是去容器中找这个组件，如果找不到则取默认配置的组件（MultipartResolver除外，找不到默认为null）
+	9、SpringMVC视图解析器
+		9.1）方法的任何返回值都会被封装成ModelAndView对象
+			mv = ha.handle(processedRequest, response, mappedHandler.getHandler());
+		9.2）来到页面的方法（视图渲染流程）
+			processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException);
+		9.3）调用render方法进行渲染
+			render(mv, request, response);
+		9.4）调用resolveViewName根据视图名获取View对象
+			view = resolveViewName(mv.getViewName(), mv.getModelInternal(), locale, request);
+			View view = viewResolver.resolveViewName(viewName, locale);
+			view = createView(viewName, locale);
+		9.5）调用View对象的render方法
+			view.render(mv.getModelInternal(), request, response);
+		9.6）渲染数据到页面
+			renderMergedOutputModel(mergedModel, getRequestToExpose(request), response);
+		9.7）将模型中的数据组装到request中
+			exposeModelAsRequestAttributes(model, request);
+		9.8）获取转发地址
+			String dispatcherPath = prepareForRendering(request, response);
+		9.9）获取转发器
+			RequestDispatcher rd = getRequestDispatcher(request, dispatcherPath);
+		9.10）转发操作，完成视图渲染，流程结束
+			rd.forward(request, response);
+		
+			
 		
 			
 	
