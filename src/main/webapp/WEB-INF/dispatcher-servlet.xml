@@ -30,6 +30,11 @@
         <property name="exposeContextBeansAsAttributes" value="true"/>
     </bean>
 
+    <!--配置自定义视图解析器-->
+    <bean class="cn.jicl.view.MyViewResolver" id="myViewResolver">
+        <property name="order" value="1"/>
+    </bean>
+
     <!-- 自动扫描装配 -->
     <context:component-scan base-package="cn.jicl"/>
 </beans>

@@ -114,4 +114,17 @@ public class HelloController {
         //转发到其他的mapping
         return "redirect:/hello7";
     }
+
+    /**
+     * @Description: 自定义视图解析器
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/6 22:24
+     **/
+    @RequestMapping(value = "/hello9")
+    public String hello09(Model model){
+        System.out.println("hello09");
+        model.addAttribute("hello","hello9");
+        return "myView:/hello9";
+    }
 }

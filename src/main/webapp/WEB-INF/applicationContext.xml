@@ -2,8 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/mvc
+                           http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <context:component-scan base-package="cn.jicl"/>
+
+    <!--将国际化配置文件交给SpringMVC管理，其中id必须为messageSource-->
+    <bean class="org.springframework.context.support.ResourceBundleMessageSource" id="messageSource">
+        <property name="basename" value="i18n.login"></property>
+    </bean>
+    
+    <!--指定那个请求映射哪个页面，无需写代码配置
+        但是会导致其他请求无法映射，所以需要加上配置mvc:annotation-driven-->
+    <mvc:view-controller path="/tologin" view-name="login"/>
+    <!--开启mvc注解驱动-->
+    <mvc:annotation-driven/>
 </beans>

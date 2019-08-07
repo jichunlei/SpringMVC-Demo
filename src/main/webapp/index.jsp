@@ -35,5 +35,11 @@
 <a href="/mvc/hello6">hello6转发</a><br/>
 <a href="/mvc/hello7">hello7重定向</a><br/>
 <a href="/mvc/hello8">hello8重定向</a><br/>
+
+<a href="/mvc/login">登陆</a><br/>
+<a href="/mvc/tologin">登陆2</a><br/>
+
+<a href="/mvc/hello9">自定义视图解析器</a><br/>
+
 </body>
 </html>
