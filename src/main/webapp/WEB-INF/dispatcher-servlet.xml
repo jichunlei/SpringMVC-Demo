@@ -9,8 +9,8 @@
     <!--启用spring的一些annotation -->
     <context:annotation-config/>
 
-    <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
-    <mvc:annotation-driven/>
+    <!-- 使用注解的方式进行开发，扫描注解的包 -->
+    <context:component-scan base-package="cn.jicl"/>
 
     <!--静态资源映射-->
     <!--本项目把静态资源放在了webapp的statics目录下，资源映射如下-->
@@ -35,6 +35,25 @@
         <property name="order" value="1"/>
     </bean>
 
-    <!-- 自动扫描装配 -->
-    <context:component-scan base-package="cn.jicl"/>
+    <!--将国际化配置文件交给SpringMVC管理，其中id必须为messageSource-->
+    <bean class="org.springframework.context.support.ResourceBundleMessageSource" id="messageSource">
+        <property name="basename" value="i18n.login"></property>
+    </bean>
+
+    <!--指定那个请求映射哪个页面，无需写代码配置
+        但是会导致其他请求无法映射，所以需要加上配置mvc:annotation-driven-->
+    <mvc:view-controller path="/tologin" view-name="login"/>
+    <!--开启mvc注解驱动-->
+    <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <!--配置自定义转换器-->
+    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <ref bean="myConverter"/>
+            </set>
+        </property>
+    </bean>
+
 </beans>

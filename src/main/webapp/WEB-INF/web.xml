@@ -40,14 +40,15 @@
             -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    <!--把applicationContext.xml加入到配置文件中-->
+
+    <!-- 配置监听器，项目启动时加载spring配置信息 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
 
     <!--定义编码过滤器-->
     <!--必须定义在其他所有filter之前，否则还是乱码-->

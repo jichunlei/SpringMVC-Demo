@@ -107,4 +107,10 @@ public class BookController {
         return "success";
     }
 
+    @RequestMapping("/quickadd")
+    public String quickAddBook(@RequestParam("bookInfo") Book book) {
+        System.out.println("新增图书【" + book + "】成功！");
+        return "success";
+    }
+
 }

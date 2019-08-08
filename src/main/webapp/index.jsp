@@ -31,15 +31,20 @@
     <button type="submit">更新图书</button>
 </form>
 <hr/>
-<a href="/mvc/hello5">hello5转发</a><br/>
-<a href="/mvc/hello6">hello6转发</a><br/>
-<a href="/mvc/hello7">hello7重定向</a><br/>
-<a href="/mvc/hello8">hello8重定向</a><br/>
+<a href="hello5">hello5转发</a><br/>
+<a href="hello6">hello6转发</a><br/>
+<a href="hello7">hello7重定向</a><br/>
+<a href="hello8">hello8重定向</a><br/>
 
-<a href="/mvc/login">登陆</a><br/>
-<a href="/mvc/tologin">登陆2</a><br/>
+<a href="login">登陆</a><br/>
+<a href="tologin">登陆2</a><br/>
 
-<a href="/mvc/hello9">自定义视图解析器</a><br/>
+<a href="hello9">自定义视图解析器</a><br/>
+
+<form action="book/quickadd" method="post">
+    书名：<input type="text" name="bookInfo"/><br/>
+    <input type="submit" value="快速新增图书">
+</form>
 
 </body>
 </html>

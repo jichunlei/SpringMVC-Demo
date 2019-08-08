@@ -133,6 +133,10 @@
 			a）conversionService：负责数据类型的转换以及格式化功能
 			b）validators：负责数据校验功能
 			c）bindingResult：负责保存及解析数据绑定期间数据校验产生的错误
+		10.2）自定义数据转换器
+			a）实现Converter接口
+			b）配置自己的ConversionService，让SpringMVC使用自己定义的ConversionService
+			c）
 		
 			
 	
