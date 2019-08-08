@@ -47,8 +47,9 @@
     <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
     <mvc:annotation-driven conversion-service="conversionService"/>
 
-    <!--配置自定义转换器-->
-    <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <!--配置自定义转换器
+        建议使用FormattingConversionServiceFactoryBean,不仅有数据转换作用，而且具有数据格式化作用-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="converters">
             <set>
                 <ref bean="myConverter"/>

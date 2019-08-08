@@ -129,14 +129,40 @@
 			a）编写自定义的视图解析器和视图实现类
 			b）将视图解析器加入到IOC容器中去		
 	10、数据转换&数据格式化&数据校验
-		10.1）WebDataBinder：数据绑定器，负责数据的绑定工作
-			a）conversionService：负责数据类型的转换以及格式化功能
-			b）validators：负责数据校验功能
-			c）bindingResult：负责保存及解析数据绑定期间数据校验产生的错误
-		10.2）自定义数据转换器
-			a）实现Converter接口
-			b）配置自己的ConversionService，让SpringMVC使用自己定义的ConversionService
-			c）
+		10.1）数据转换
+			1）WebDataBinder：数据绑定器，负责数据的绑定工作
+				a）conversionService：负责数据类型的转换以及格式化功能
+				b）validators：负责数据校验功能
+				c）bindingResult：负责保存及解析数据绑定期间数据校验产生的错误
+			2）自定义数据转换器
+				a）实现Converter接口
+				b）配置自己的ConversionService，让SpringMVC使用自己定义的ConversionService
+			3）几个注解详解
+				3.1）context:annotation-config：激活已经在application context中注册的bean
+					a）如果你想使用@Autowired注解，那么就必须事先在 Spring 容器中声明 AutowiredAnnotationBeanPostProcessor Bean；如果想使用@Resource 、@PostConstruct、@PreDestroy等注解就必须声明CommonAnnotationBeanPostProcessor；如果想使用@PersistenceContext注解，就必须声明PersistenceAnnotationBeanPostProcessor的Bean；如果想使用 @Required的注解，就必须声明RequiredAnnotationBeanPostProcessor的Bean。<context:annotation-config/>隐式地向 Spring容器注册这4个BeanPostProcessor：
+				3.2）context:component-scan：
+					a）<context:component-scan>做了<context:annotation-config>要做的事情，还额外支持@Component，@Repository，@Service，@Controller @RestController,@ControllerAdvice, and @Configuration注解；
+					b）<context:component-scan>该注解可以扫描并注册你使用注解诸如@controller @service @component..的bean，也就是说你不用xml中显示配置，需要的时候尽管用@Resource或者@Autowired来自动注入
+					c）所以配置<context:component-scan>就不需要配置<context:annotation- config/>
+				3.3）mvc:annotation-driven：
+					a）向工厂中注册了以下组件
+						RequestMappingHandlerMapping：处理@RequestMapping注解
+						BeanNameUrlHandlerMapping：将controller类的名字映射为请求url
+						RequestMappingHandlerAdapter：处理@Controller注解的处理器，支持自定义方法参数和返回值
+						HttpRequestHandlerAdapter：处理继承HttpRequestHandler的处理器
+						SimpleControllerHandlerAdapter：处理继承自Controller接口的处理器
+						ExceptionHandlerExceptionResolver：处理异常的解析器
+						ResponseStatusExceptionResolver：处理异常的解析器
+						DefaultHandlerExceptionResolver：处理异常的解析器
+					b）支持使用ConversionService实例对表单参数进行类型转换；
+					c）支持使用@NumberFormatannotation、@DateTimeFormat注解完成数据类型的格式化；
+					d）支持使用@Valid注解对Java bean实例进行JSR 303验证；
+					e）支持使用@RequestBody和@ResponseBody注解
+		10.2）数据格式化
+			
+
+				
+				
 		
 			
 	
