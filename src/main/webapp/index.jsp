@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <html>
@@ -45,6 +46,16 @@
     书名：<input type="text" name="bookInfo"/><br/>
     <input type="submit" value="快速新增图书">
 </form>
+
+<form action="hello10" method="post">
+    姓名：<input type="text" name="name"/><form:errors path="name"/><br/>
+    生日：<input type="text" name="birth"/><form:errors path="birth"/><br/>
+    薪水：<input type="text" name="salary"/><form:errors path="salary"/><br/>
+    邮箱：<input type="text" name="email"/><form:errors path="email"/><br/>
+    <input type="submit" value="数据格式化">
+</form>
+
+<a href="add_page">添加员工</a><br/>
 
 </body>
 </html>

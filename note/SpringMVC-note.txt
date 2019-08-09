@@ -158,8 +158,19 @@
 					c）支持使用@NumberFormatannotation、@DateTimeFormat注解完成数据类型的格式化；
 					d）支持使用@Valid注解对Java bean实例进行JSR 303验证；
 					e）支持使用@RequestBody和@ResponseBody注解
-		10.2）数据格式化
-			
+		10.2）数据格式化:在pojo属性上使用注解，并标明pattern
+			a）@DateTimeFormat：日期格式化
+			b）@NumberFormat：数值格式化
+		10.3）数据校验：只有前段校验不安全，在重要数据上一定要加上后端验证
+			a）SpringMVC中可以使用JSR303来做数据校验
+				例：hibernate validator（第三方校验框架）
+			b）如何在SpringMVC中给数据进行校验
+				*导入必要依赖
+				*给Javabean的属性加上需要的校验注解
+				*告诉SpringMVC需要校验该Javabean，即给入参加上@Valid注解
+	11、SpringMVC支持ajax
+		11.1）步骤
+			a）导入必要依赖
 
 				
 				

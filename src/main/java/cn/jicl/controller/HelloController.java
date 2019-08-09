@@ -4,13 +4,14 @@ import cn.jicl.pojo.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -126,5 +127,38 @@ public class HelloController {
         System.out.println("hello09");
         model.addAttribute("hello","hello9");
         return "myView:/hello9";
+    }
+
+    /**
+     * @Description: 数据转换/数据格式化/数据校验
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/6 22:24
+     **/
+    @RequestMapping(value = "/add")
+    public String hello10(@Valid Person person, BindingResult result){
+        if(result.hasErrors()){
+            List<FieldError> fieldErrors = result.getFieldErrors();
+            for (FieldError fieldError : fieldErrors) {
+                System.out.println(fieldError.getField()+"的错误信息>>>"+fieldError.getDefaultMessage());
+                System.out.println(fieldError.getField()+"的错误代码>>>"+fieldError.getCode());
+                System.out.println(fieldError.getField()+"的完整错误信息>>>"+fieldError);
+            }
+            return "add";
+        }
+        System.out.println(person);
+        return "success";
+    }
+
+    @RequestMapping(value = "/add_page")
+    public String hello11(Model model){
+        model.addAttribute("person",new Person("贤子磊"));
+        return "add";
+    }
+
+    @RequestMapping("/ajaxRequest")
+    @ResponseBody
+    public Person ajaxRequest(){
+        return new Person("贤子磊");
     }
 }

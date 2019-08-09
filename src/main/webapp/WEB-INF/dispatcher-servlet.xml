@@ -37,7 +37,7 @@
 
     <!--将国际化配置文件交给SpringMVC管理，其中id必须为messageSource-->
     <bean class="org.springframework.context.support.ResourceBundleMessageSource" id="messageSource">
-        <property name="basename" value="i18n.login"></property>
+        <property name="basename" value="i18n.errors"></property>
     </bean>
 
     <!--指定那个请求映射哪个页面，无需写代码配置
