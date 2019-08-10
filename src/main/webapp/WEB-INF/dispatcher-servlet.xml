@@ -46,6 +46,7 @@
     <!--开启mvc注解驱动-->
     <!-- 配置注解驱动 可以将request参数与绑定到controller参数上 -->
     <mvc:annotation-driven conversion-service="conversionService"/>
+    <mvc:default-servlet-handler/>
 
     <!--配置自定义转换器
         建议使用FormattingConversionServiceFactoryBean,不仅有数据转换作用，而且具有数据格式化作用-->

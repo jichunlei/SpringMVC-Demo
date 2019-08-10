@@ -161,4 +161,10 @@ public class HelloController {
     public Person ajaxRequest(){
         return new Person("贤子磊");
     }
+
+    @RequestMapping("/getResponseBody")
+    public String getResponseBody(@RequestBody Person person){
+        System.out.println(person);
+        return "success";
+    }
 }

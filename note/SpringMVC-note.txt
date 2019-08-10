@@ -171,6 +171,8 @@
 	11、SpringMVC支持ajax
 		11.1）步骤
 			a）导入必要依赖
+			b）返回数据使用@ResponseBody注解
+			c）页面使用ajax脚本
 
 				
 				

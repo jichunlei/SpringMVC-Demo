@@ -1,3 +1,4 @@
+<%@ page import="java.util.Date" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
@@ -57,5 +58,13 @@
 
 <a href="add_page">添加员工</a><br/>
 
+<form action="getResponseBody" method="post" enctype="multipart/form-data">
+    姓名：<input type="text" name="name"/><br/>
+    生日：<input type="text" name="birth"/><br/>
+    薪水：<input type="text" name="salary"/><br/>
+    邮箱：<input type="text" name="email"/><br/>
+    简历：<input type="file" name="file"/><br/>
+    <input type="submit" value="提交"/>
+</form>
 </body>
 </html>
