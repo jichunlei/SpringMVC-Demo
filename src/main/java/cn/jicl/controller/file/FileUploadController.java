@@ -18,10 +18,10 @@ import java.io.IOException;
 @RequestMapping("/file")
 public class FileUploadController {
     //文件保存位置
-    private String fileUploadPath = "D:\\IDEA\\GitRepositories\\SpringMVCDemo\\note\\";
+    private String fileUploadPath = "D:\\GitRepositories\\SpringMVC-Demo\\note\\";
 
     /**
-     * @Description: 文件上传
+     * @Description: 单文件上传
      * @param username 1
      * @param file 2
      * @return: java.lang.String
@@ -43,4 +43,28 @@ public class FileUploadController {
         return "success";
     }
 
+    /**
+     * @Description: 多文件上传
+     * @param username 用户名
+     * @param files 文件列表
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/12 21:48
+     **/
+    @RequestMapping("/uploads")
+    public String uploads(@RequestParam("username") String username, @RequestParam("file") MultipartFile[] files) {
+        System.out.println("用户名：" + username);
+        for (MultipartFile file : files) {
+            //获取表单中文件组件的名字
+            System.out.println("文件组件名：" + file.getName());
+            //获取上传文件的原名
+            System.out.println("文件原名：" + file.getOriginalFilename());
+            try {
+                file.transferTo(new File(fileUploadPath + username + "-" + file.getOriginalFilename()));
+            } catch (Exception e) {
+                return "error";
+            }
+        }
+        return "success";
+    }
 }

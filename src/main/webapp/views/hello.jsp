@@ -11,6 +11,9 @@
     <title>hello</title>
 </head>
 <body>
+<%
+    System.out.println("hello.jsp");
+%>
     requestScope.msg:${requestScope.get("msg")}<br/>
     requestScope.msg2:${requestScope.get("msg2")}<br/>
     requestScope.msg3:${requestScope.get("msg3")}<br/>

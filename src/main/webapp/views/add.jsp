@@ -13,7 +13,7 @@
 </head>
 <body>
 <form:form action="add" modelAttribute="person" method="post">
-    姓名：<form:input path="name"/><form:errors path="name"/><br/>
+    姓名：<form:input path="username"/><form:errors path="username"/><br/>
     生日：<form:input path="birth"/><form:errors path="birth"/><br/>
     薪水：<form:input path="salary"/><form:errors path="salary"/><br/>
     邮箱：<form:input path="email"/><form:errors path="email"/><br/>

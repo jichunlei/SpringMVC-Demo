@@ -70,7 +70,15 @@
 <form action="file/upload" method="post" enctype="multipart/form-data">
     姓名：<input type="text" name="username"/><br/>
     简历：<input type="file" name="file"/><br/>
-    <input type="submit" value="提交"/>
+    <input type="submit" value="单文件提交"/>
+</form>
+
+<form action="file/uploads" method="post" enctype="multipart/form-data">
+    姓名：<input type="text" name="username"/><br/>
+    简历1：<input type="file" name="file"/><br/>
+    简历2：<input type="file" name="file"/><br/>
+    简历3：<input type="file" name="file"/><br/>
+    <input type="submit" value="多文件提交"/>
 </form>
 </body>
 </html>

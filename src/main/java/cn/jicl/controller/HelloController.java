@@ -32,9 +32,9 @@ import java.util.Map;
 public class HelloController {
 
     //其中的/可以省略不写
-    @RequestMapping(value = "/hello1",method = RequestMethod.POST)
+    @RequestMapping(value = "/hello1",method = RequestMethod.GET)
     public String hello01(){
-        System.out.println("处理请求完成！");
+        System.out.println("hello！");
         //视图解析器字段拼串
         return "hello";
     }
