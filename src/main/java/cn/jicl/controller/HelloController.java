@@ -1,9 +1,14 @@
 package cn.jicl.controller;
 
 import cn.jicl.pojo.Person;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -166,5 +172,46 @@ public class HelloController {
     public String getResponseBody(@RequestBody Person person){
         System.out.println(person);
         return "success";
+    }
+
+    /**
+     * @Description: 获取所有请求信息，包括请求头
+     * @param entity 1
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/12 8:40
+     **/
+    @RequestMapping("/getHttpEntity")
+    public String getHttpEntity(HttpEntity<String> entity){
+        System.out.println(entity);
+        return "success";
+    }
+
+    /**
+     * @Description: 直接将返回信息写到返回体中
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/12 8:45
+     **/
+    @ResponseBody
+    @RequestMapping("/getResponseBody1")
+    public String getResponseBody1(){
+        return "<h1>success</h1>";
+    }
+
+    /**
+     * @Description: 自定义请求头和请求体返回给界面
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/12 8:45
+     **/
+    @ResponseBody
+    @RequestMapping("/getResponseEntity")
+    public ResponseEntity<String> getResponseEntity(){
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.set("Content-Type","text/html;charset=UTF-8");
+        httpHeaders.set("HAHAHA","AAA");
+        ResponseEntity<String> responseEntity = new ResponseEntity<>("<h1>hello1<h1>", httpHeaders, HttpStatus.OK);
+        return responseEntity;
     }
 }

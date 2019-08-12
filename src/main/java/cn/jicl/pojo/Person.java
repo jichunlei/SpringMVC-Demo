@@ -29,7 +29,7 @@ public class Person {
 
     @NotBlank
     @Length(max = 18,min = 6)
-    private String name;
+    private String username;
 
     //Past:必须为过去的时间
     //Future必须为未来的时间
@@ -45,7 +45,7 @@ public class Person {
     @NumberFormat(pattern = "#,###.##")
     private double salary;
 
-    public Person(String name) {
-        this.name = name;
+    public Person(String username) {
+        this.username = username;
     }
 }

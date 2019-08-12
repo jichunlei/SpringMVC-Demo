@@ -23,7 +23,7 @@ public class MyConverter implements Converter<String, Book> {
         String[] strings = source.split("-");
         Book book = new Book();
         Person person = new Person();
-        person.setName(strings[0]);
+        person.setUsername(strings[0]);
         book.setAuthor(person);
         book.setBookName(strings[1]);
         book.setPrice(Double.valueOf(strings[2]));

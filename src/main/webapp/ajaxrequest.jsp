@@ -34,7 +34,6 @@
                 $("div").append(data.salary+"<br/>");
             }
         });
-
        return false;
     });
 </script>

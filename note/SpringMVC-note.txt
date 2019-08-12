@@ -173,6 +173,12 @@
 			a）导入必要依赖
 			b）返回数据使用@ResponseBody注解
 			c）页面使用ajax脚本
+	12、文件上传
+		12.1）步骤
+			a）页面准备：enctype="multipart/form-data"
+			b）导入必要的jar包
+			c）SpringMVC配置文件中配置文件上传解析器
+			d）控制器方法加参数：@RequestParam("xxx") MultipartFile xxx
 
 				
 				

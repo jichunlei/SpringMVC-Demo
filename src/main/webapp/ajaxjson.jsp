@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>发送json到服务器</title>
+    <script type="text/javascript" src="statics/js/jquery-1.9.1.min.js"></script>
 </head>
 <body>
 <a href="getResponseBody">发送json到服务器</a>
@@ -16,21 +17,21 @@
     $("a:first").click(function () {
         //js对象
         var obj={
-            name:"仙子磊",
-            salary:"100.00"
-            <%--birth:"${date}"--%>
+            username:"aa",
+            salary:'1000.00'
         };
         alert(typeof obj);
-        var str=JSON.stringify(obj);
-        alert(typeof str);
+        var objStr=JSON.stringify(obj);
+        alert(typeof objStr);
         $.ajax({
-            url:"getResponseBody",
-            type:"POST",
-            contentType:"application/json",
-            data:str,
+            url:'getResponseBody',
+            type:'POST',
+            contentType:'application/json',
+            data:objStr,
             success:function (data) {
                 alert(data);
             }
+
         });
         return false;
     });
