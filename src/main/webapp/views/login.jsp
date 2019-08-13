@@ -13,10 +13,11 @@
 </head>
 <body>
     <h2><fmt:message key="login.welcome"/></h2>
-    <form action="/mvc/login">
+    <form action="login">
         <fmt:message key="login.username"/>:<input type="text"/><br/>
         <fmt:message key="login.password"/>:<input type="text"/><br/>
         <input type="submit" value='<fmt:message key="login.login"/>'/><br/>
+        <a href="login?locale=zh_CN">中文</a> <a href="login?locale=en_US">English</a><br/>
     </form>
 </body>
 </html>
