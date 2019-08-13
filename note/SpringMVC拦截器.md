@@ -8,7 +8,7 @@
 
 SpringMVC提供了拦截器机制：允许允许目标方法之前进行一些拦截工作，或者目标方法运行之后进行一些其他处理。（HandlerInterceptor）
 
-![HandlerInterceptor](D:\学习笔记\Java\框架\SringMVC\HandlerInterceptor.png)
+![HandlerInterceptor](D:\GitRepositories\SpringMVC-Demo\note\HandlerInterceptor.png)
 
 * 方法介绍：
 

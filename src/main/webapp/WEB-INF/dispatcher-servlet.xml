@@ -68,9 +68,14 @@
     <mvc:interceptors>
         <!--此配置默认拦截所有请求-->
         <bean class="cn.jicl.interceptor.MyFirstInterceptor"/>
+        <mvc:interceptor>
+            <mvc:mapping path="/login"/>
+            <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!--自定义区域信息解析器-->
-    <bean class="cn.jicl.controller.locale.MyLocaleResolver" id="localeResolver"/>
-
+    <!--<bean class="cn.jicl.resolver.locale.MyLocaleResolver" id="localeResolver"/>-->
+    <!--使用SessionLocaleResolver区域信息解析器-->
+    <bean class="org.springframework.web.servlet.i18n.SessionLocaleResolver" id="localeResolver"/>
 </beans>

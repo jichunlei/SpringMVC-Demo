@@ -1,8 +1,9 @@
-package cn.jicl.controller.locale;
+package cn.jicl.resolver.locale;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.servlet.LocaleResolver;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
