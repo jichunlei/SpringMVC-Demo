@@ -1,5 +1,7 @@
 # SpringMVC运行流程
 
+[TOC]
+
 ### 1、流程总览：前端控制器（DispatcherServlet）收到请求，调用doDispatch方法进行处理
 
 ```java
@@ -404,5 +406,14 @@ protected void render(ModelAndView mv, HttpServletRequest request, HttpServletRe
 ```
 
 * 视图解析器根据视图名得到视图对象
+
 * 视图对象调用render方法
+
 * 执行拦截器的afterCompletion方法
+
+  ### 八、流程图
+
+  ![](D:\GitRepositories\SpringMVC-Demo\note\SpringMVC运行流程.png)
+
+  
+

@@ -10,12 +10,21 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <!--配置springmvc DispatcherServlet-->
+    <!-- 配置监听器，项目启动时加载spring配置信息,Spring框架的底层是listener -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+
+    <!--配置springmvc DispatcherServlet,SpringMVC底层是servlet-->
     <servlet>
         <servlet-name>springMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
-            <!--配置dispatcher.xml作为mvc的配置文件-->
+            <!-- 指定SpringMVC框架的配置文件的路径和名称 -->
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
         </init-param>
@@ -41,14 +50,7 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!-- 配置监听器，项目启动时加载spring配置信息 -->
-    <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/applicationContext.xml</param-value>
-    </context-param>
+
 
     <!--定义编码过滤器-->
     <!--必须定义在其他所有filter之前，否则还是乱码-->

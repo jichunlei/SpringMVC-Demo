@@ -9,8 +9,11 @@
     <!--启用spring的一些annotation -->
     <context:annotation-config/>
 
-    <!-- 使用注解的方式进行开发，扫描注解的包 -->
-    <context:component-scan base-package="cn.jicl"/>
+    <!-- 使用注解的方式进行开发，扫描Controller和和ControllerAdvice注解的类 -->
+    <context:component-scan base-package="cn.jicl" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+    </context:component-scan>
 
     <!--静态资源映射-->
     <!--本项目把静态资源放在了webapp的statics目录下，资源映射如下-->

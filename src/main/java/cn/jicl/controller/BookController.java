@@ -1,6 +1,8 @@
 package cn.jicl.controller;
 
+import cn.jicl.logic.CommonLogic;
 import cn.jicl.pojo.Book;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,13 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/book")
 public class BookController {
+
+    @Autowired
+    private CommonLogic commonLogic;
+
+    public BookController() {
+        System.out.println("BookController");
+    }
 
     /**
      * @Description: 新增图书

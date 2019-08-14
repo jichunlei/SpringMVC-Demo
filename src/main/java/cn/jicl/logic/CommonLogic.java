@@ -10,5 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CommonLogic {
 
-
+    public CommonLogic() {
+        System.out.println("CommonLogic");
+    }
 }
