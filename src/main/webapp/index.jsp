@@ -80,5 +80,11 @@
     简历3：<input type="file" name="file"/><br/>
     <input type="submit" value="多文件提交"/>
 </form>
+
+<a href="exception1?i=0">异常处理1</a>
+
+<a href="exception2?username=admiaaa">异常处理2</a>
+
+<a href="exception3">异常处理3</a>
 </body>
 </html>

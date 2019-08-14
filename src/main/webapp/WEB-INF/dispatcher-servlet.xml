@@ -78,4 +78,17 @@
     <!--<bean class="cn.jicl.resolver.locale.MyLocaleResolver" id="localeResolver"/>-->
     <!--使用SessionLocaleResolver区域信息解析器-->
     <bean class="org.springframework.web.servlet.i18n.SessionLocaleResolver" id="localeResolver"/>
+
+    <!--配置异常处理器-->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!--配置异常类型及转发页面-->
+        <property name="exceptionMappings">
+            <props>
+                <!--key：异常类型；value：转发页面（视图解析器会拼接前后缀）-->
+                <prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop>
+            </props>
+        </property>
+        <!--配置异常封装属性名-->
+        <property name="exceptionAttribute" value="ex" />
+    </bean>
 </beans>

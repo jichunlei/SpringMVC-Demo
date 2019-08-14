@@ -1,5 +1,6 @@
 package cn.jicl.controller;
 
+import cn.jicl.exception.UserNotExistException;
 import cn.jicl.pojo.Person;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -213,5 +214,49 @@ public class HelloController {
         httpHeaders.set("HAHAHA","AAA");
         ResponseEntity<String> responseEntity = new ResponseEntity<>("<h1>hello1<h1>", httpHeaders, HttpStatus.OK);
         return responseEntity;
+    }
+
+    /**
+     * @Description: 测试异常处理1
+     * @param i 1
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/14 12:04
+     **/
+    @RequestMapping("/exception1")
+    public String exception1(Integer i){
+        System.out.println("exception1执行了...");
+        System.out.println(10/i);
+        return "success";
+    }
+
+    /**
+     * @Description: 测试异常处理2
+     * @param username 1
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/14 12:04
+     **/
+    @RequestMapping("/exception2")
+    public String exception2(String username) throws UserNotExistException {
+        System.out.println("exception2执行了...");
+        if(!"admin".equals(username)){
+            throw new UserNotExistException();
+        }
+        return "success";
+    }
+
+    /**
+     * @Description: 测试异常处理3
+     * @return: java.lang.String
+     * @auther: xianzilei
+     * @date: 2019/8/14 12:04
+     **/
+    @RequestMapping("/exception3")
+    public String exception3(){
+        System.out.println("exception3执行了...");
+        char[] chars=new char[0];
+        System.out.println(chars[2]);
+        return "success";
     }
 }
